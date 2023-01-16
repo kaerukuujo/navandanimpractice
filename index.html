@@ -7,12 +7,18 @@
     <style>
         * {
             margin: 0;
+            box-sizing: border-box;
         }
-        .invisible {
+        #invisible {
             display: none;
+            max-height: 0;
         }
         .flex {
             display: flex;
+        }
+        .flex-col {
+            display: flex;
+            flex-direction: column;
         }
         .fullwidth {
             width: 100 vw;
@@ -24,9 +30,16 @@
         #menuIcon:hover {
             cursor: pointer;
         }
+        .navArrow:hover {
+            cursor: pointer;
+        }
+        .imageSlider {
+            width: 1fr;
+            height: 100%;
+            /* background-color: red; */
+        }
     </style>
-    <title>Document</title>
-    <script src="index.js"></script>
+    <title>Document</title>    
 </head>
 <body>
     <header class="fullwidth bgMain flex">
@@ -44,10 +57,50 @@
                 alt="menu" 
                 style="height: 35px; padding: 5px;"
             >
+            <div 
+                id="invisible" 
+                class="menu flex-col" 
+                style="
+                    position: absolute;
+                    top: 40px;
+                    left: 0px;
+                    padding: 10px;
+                    gap: 10px;
+                    width: 200px;
+                    height: 100vh; 
+                    max-height: 100vh; 
+                    background-color: rgb(31, 124, 62);
+                    transition: max-height 0.3s ease-in;                                       
+                ">
+                <a href="#">Menu item 1</a>
+                <a href="#">Menu item 2</a>
+                <a href="#">Menu item 3</a>
+                <a href="#">Menu item 4</a>
+                <a href="#">Menu item 5</a>
+            </div>
         </nav>
     </header>
     <main>
         <h1>This is a header</h1>
+        <div class="carasoul flex" 
+            style="
+                justify-content: center; 
+                align-items: center;
+                height: 70vh;
+            ">
+            <img 
+                class="navArrow"
+                src="./img/arrow-left-bold.png" 
+                alt="last item" 
+                style="width: 100px; height: 100px;">
+            <div class="imageSlider" style="width: 100vw;"></div>
+            <img 
+                class="navArrow"
+                src="./img/arrow-right-bold.png" 
+                alt="next item" 
+                style="width: 100px; height: 100px;">
+        </div>
     </main>
+    <script src="index.js"></script>
 </body>
 </html>
